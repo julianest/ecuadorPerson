@@ -13,7 +13,7 @@ FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
-COPY --from=build /app/build/libs/ecuador_bank-1.0.0.jar /app/ecuador_bank.jar
+COPY --from=build /app/build/libs/ecuador-1.0.0.jar /app/ecuador_bank.jar
 
 EXPOSE 8080
 
