@@ -15,6 +15,6 @@ WORKDIR /app
 
 COPY --from=build /app/build/libs/ecuador_bank-1.0.0.jar /app/ecuador_bank.jar
 
-EXPOSE 8082
+EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "ecuador_bank.jar"]
