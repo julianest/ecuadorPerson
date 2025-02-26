@@ -2,7 +2,7 @@ name: Api_EcuadorBank
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
