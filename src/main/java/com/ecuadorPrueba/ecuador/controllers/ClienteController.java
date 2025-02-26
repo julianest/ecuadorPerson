@@ -13,8 +13,6 @@ import java.util.List;
 @RequestMapping("/api/clientes")
 public class ClienteController {
 
-//    @Autowired
-//    private ClienteServiceImpl clienteService;
     private final ClienteServiceImpl clienteService;
 
     @Autowired
