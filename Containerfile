@@ -13,8 +13,8 @@ FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
-COPY --from=build /app/build/libs/ecuador-prueba-1.0.0.jar /app/auth_apiecuador-prueba.jar
+COPY --from=build /app/build/libs/ecuador_bank-1.0.0.jar /app/ecuador_bank.jar
 
 EXPOSE 8082
 
-ENTRYPOINT ["java", "-jar", "ecuador-prueba.jar"]
+ENTRYPOINT ["java", "-jar", "ecuador_bank.jar"]
