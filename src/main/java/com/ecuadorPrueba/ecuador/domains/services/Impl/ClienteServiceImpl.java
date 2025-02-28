@@ -47,6 +47,13 @@ public class ClienteServiceImpl implements IClienteService {
 
     @Override
     @Transactional(readOnly = true)
+    public Optional<ClienteDTO> obtenerClientePorNombre(String nombre) {
+        return clienteRepository.findByNombre(nombre)
+                .map(MapperUtils::convertirClienteADto);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<ClienteDTO> listarTodosLosClientes() {
         return clienteRepository.findAll().stream()
                 .map(MapperUtils::convertirClienteADto)

@@ -13,14 +13,13 @@ public class MapperUtils {
     public static Cliente convertirDtoACliente(ClienteDTO dto) {
         Cliente cliente = new Cliente();
         return Cliente.builder()
-                .clienteId(dto.getId())
+                .id(dto.getId())
                 .nombre(dto.getNombre())
                 .genero(dto.getGenero())
                 .edad(dto.getEdad())
                 .identificacion(dto.getIdentificacion())
                 .direccion(dto.getDireccion())
                 .telefono(dto.getTelefono())
-                .clienteId(dto.getClienteId())
                 .contraseña(dto.getContraseña())
                 .estado(dto.getEstado() != null ? dto.getEstado() : true)
                 .build();
@@ -40,7 +39,6 @@ public class MapperUtils {
                 .identificacion(entidad.getIdentificacion())
                 .direccion(entidad.getDireccion())
                 .telefono(entidad.getTelefono())
-                .clienteId(entidad.getClienteId())
                 .contraseña(entidad.getContraseña())
                 .estado(entidad.getEstado())
                 .build();
@@ -69,9 +67,6 @@ public class MapperUtils {
         }
         if (dto.getTelefono() != null) {
             cliente.setTelefono(dto.getTelefono());
-        }
-        if (dto.getClienteId() != null) {
-            cliente.setClienteId(dto.getClienteId());
         }
         if (dto.getContraseña() != null) {
             cliente.setContraseña(dto.getContraseña());

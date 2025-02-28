@@ -18,7 +18,6 @@ public class ClienteDTO {
     private String telefono;
 
     // Campos específicos de Cliente
-    private Long clienteId;
     private String contraseña;
     private Boolean estado;
 }
