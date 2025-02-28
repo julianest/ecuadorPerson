@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "5340e873-f496-4589-b9a1-d8cf1f027759",
+		"name": "EcuadorPrueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18572615"
+	},
+	"item": [
+		{
+			"name": "obtenerClientePorId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/id/33",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"id",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerClientePorIdentificacion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/identification/1122334455",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"identification",
+						"1122334455"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerClientePorNombre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/nombre/Jose Lema",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"nombre",
+						"Jose Lema"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarTodosLosClientes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Identificacion</th>\r",
+							"        <th>Nombre</th>\r",
+							"        <th>Genero</th>\r",
+							"        <th>Edad</th>\r",
+							"        <th>Direccion</th>\r",
+							"        <th>Telefono</th>\r",
+							"        <th>Contraseña</th>\r",
+							"        <th>Estado</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response}}\r",
+							"        <tr>\r",
+							"            <td>{{id}}</td>\r",
+							"            <td>{{identificacion}}</td>\r",
+							"            <td>{{nombre}}</td>\r",
+							"            <td>{{genero}}</td>\r",
+							"            <td>{{edad}}</td>\r",
+							"            <td>{{direccion}}</td>\r",
+							"            <td>{{telefono}}</td>\r",
+							"            <td>{{contraseña}}</td>\r",
+							"            <td>{{estado}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearClienteS",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "a",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"nombre\": \"Jose Lema\",\r\n        \"identificacion\": \"1234567890\",\r\n        \"genero\": \"Masculino\",\r\n        \"edad\": 30,\r\n        \"direccion\": \"Otavalo sn y principal\",\r\n        \"telefono\": \"098254785\",\r\n        \"contraseña\": \"1234\",\r\n        \"estado\": true\r\n    },\r\n    {\r\n        \"nombre\": \"Marianela Montalvo\",\r\n        \"identificacion\": \"0987654321\",\r\n        \"genero\": \"Femenino\",\r\n        \"edad\": 28,\r\n        \"direccion\": \"Amazonas y NNUU\",\r\n        \"telefono\": \"097548965\",\r\n        \"contraseña\": \"5678\",\r\n        \"estado\": true\r\n    },\r\n    {\r\n        \"nombre\": \"Juan Osorio\",\r\n        \"identificacion\": \"1122334455\",\r\n        \"genero\": \"Masculino\",\r\n        \"edad\": 35,\r\n        \"direccion\": \"13 junio y Equinoccial\",\r\n        \"telefono\": \"098874587\",\r\n        \"contraseña\": \"1245\",\r\n        \"estado\": true\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminarCliente",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarCliente",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identification\": \"112\",\r\n  \"name\": \"julian\",\r\n  \"lastName\": \"Huer\",\r\n  \"email\": \"julian.huerfano5@sofka.com.co\",\r\n  \"createdBy\":\"JHSystem\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

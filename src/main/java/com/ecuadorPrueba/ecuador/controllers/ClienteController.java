@@ -28,16 +28,23 @@ public class ClienteController {
         return new ResponseEntity<>(nuevosClientes, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<ClienteDTO> obtenerClientePorId(@PathVariable Long id) {
         return clienteService.obtenerClientePorId(id)
                 .map(cliente -> new ResponseEntity<>(cliente, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/buscar")
-    public ResponseEntity<ClienteDTO> obtenerClientePorIdentificacion(@RequestParam String identificacion) {
+    @GetMapping("/identificacion/{identificacion}")
+    public ResponseEntity<ClienteDTO> obtenerClientePorIdentificacion(@PathVariable String identificacion) {
         return clienteService.obtenerClientePorIdentificacion(identificacion)
+                .map(cliente -> new ResponseEntity<>(cliente, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/nombre/{nombre}")
+    public ResponseEntity<ClienteDTO> obtenerClientePorNombre(@PathVariable String nombre) {
+        return clienteService.obtenerClientePorNombre(nombre)
                 .map(cliente -> new ResponseEntity<>(cliente, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -58,11 +65,11 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarCliente(@PathVariable Long id) {
+    public ResponseEntity<String> eliminarCliente(@PathVariable Long id) {
         if (clienteService.eliminarCliente(id)) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return ResponseEntity.ok("Cliente eliminado");
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente no encontrado");
         }
     }
 

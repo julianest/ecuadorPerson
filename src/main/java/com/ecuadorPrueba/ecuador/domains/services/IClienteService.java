@@ -8,16 +8,11 @@ import java.util.Optional;
 public interface IClienteService {
 
     ClienteDTO crearCliente(ClienteDTO clienteDTO);
-
     Optional<ClienteDTO> obtenerClientePorId(Long id);
-
     Optional<ClienteDTO> obtenerClientePorIdentificacion(String identificacion);
-
+    Optional<ClienteDTO> obtenerClientePorNombre(String nombre);
     List<ClienteDTO> listarTodosLosClientes();
-
     Optional<ClienteDTO> actualizarCliente(Long id, ClienteDTO clienteDTO);
-
     boolean eliminarCliente(Long id);
-
     Optional<ClienteDTO> cambiarEstadoCliente(Long id, Boolean nuevoEstado);
 }
